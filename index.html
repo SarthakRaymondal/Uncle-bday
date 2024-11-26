@@ -13,44 +13,48 @@
         #card {
             background-color: white;
             width: 80%;
-            height: 330px;
+            height: 385px;
             border-radius: 10px;
             border: none;
             display: block;
             overflow: unset;
             transition: 4s;
-
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
         #card1 {
             background-color: white;
             width: 80%;
-            height: 340px;
+            height: 400px;
             border-radius: 10px;
             border: none;
             display: block;
             overflow: unset;
             transition: 4s;
             position: fixed;
-            top:0;
-            margin-top: -800px;
+            top:-100px;
+            margin-top: -900px;
             visibility: hidden;
             border-top: 10px solid greenyellow;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
-        @media(max-width:650px) {
+        @media(max-width:710px) {
             #card1 {
             background-color: white;
             width: 80%;
-            height: 340px;
+            height: 400px;
             border: none;
-            border-radius: 1px;
+            border-radius: 10px;
+            border-bottom-left-radius: 10px;
             display: block;
-            overflow: scroll;
+            overflow-y: scroll;
+            overflow-x: hidden;
             transition: 4s;
             position: fixed;
             top:0;
             margin-top: -800px;
             visibility: hidden;
             border-top: 7px solid greenyellow;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             }
         }
         .ft1 {
@@ -83,7 +87,7 @@
         }
         /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 
 }
 
@@ -111,11 +115,12 @@
     transition: 0.1s;
     font-weight: 900;
     overflow: hidden;
-
+    color: black;
 }
 .button1:hover {
     filter: brightness(80%);
 }
+
     </style>
 </head>
 <body onresize="ch1()">
@@ -125,18 +130,23 @@
 <div style="height: 100vh;width: 100%;display: flex;justify-content: center;align-items: center;" id="main">
      <div id="card"><br>
            <div style="width: 98%;display: flex;justify-content: center;"><a class="ft1 title">Happy Birthday</a></div><br>
-           <div style="width: 98%;display: flex;justify-content: center;"><a class="ft1 text">"Happy Birthday Jhethu.<br>Hoping that your having a good day"</a></div>
+           <div style="width: 100%;display: flex;justify-content: center;"><div style="width: 90%;display: flex;justify-content: center;"><a class="ft1 text">"Happy Birthday Jhethu.<br>I hope that you're having a good day"</a></div></div>
            <br><br>
-           <div style="width: 100%;display: flex;justify-content: center;"><button class="button1 ft1" onclick="cardo()">See the special message</button></div>
+           <div style="width: 100%;display: flex;justify-content: center;"><button class="button1 ft1" onclick="cardo()">See the special message🎂</button></div><br>
+           <div style="width: 100%;display: flex;justify-content: center;"><button class="ft1 button1" onclick="credits()">Credits🎈</button></div><br>
      </div>
      <div id="card1"><br>
         <div style="width: 100%;display: flex;justify-content: center;"><a class="ft1 title2">Message for u</a></div><br>
-        <div style="width: 98%;display: flex;justify-content: center;"><a class="ft1 text">"Happy birthday Jhethu!! Hoping that you are having a very good day&nbsp;<spam style="color: darkblue;text-decoration: underline;cursor: pointer;" onclick="ask1()">Yes/No</spam>. Today's your birthday and i hope that u have good luck😛 U are a very successful man who passed from IIT Kharadpur and also succeeded Borda and Didibhai. We don't see these kind of people nowadays. So ur really special. I hope that I can learn a lot of valuable knowledge. So once again,a very good happy birthday."<br><br>-Sarthak</a></div>
+        <div style="width: 100%;display: flex;justify-content: center;"><div style="width: 90%;display: flex;justify-content: center;"><a class="ft1 text">"Happy birthday Jhethu!! I hope that you are having a very good day&nbsp;<spam style="color: darkblue;text-decoration: underline;cursor: pointer;" onclick="ask1()" onmouseover="this.style.color='red'" onmouseout="this.style.color='darkblue'">Yes/No</spam>. On this beautiful day,may God bless you with peach of mind and beoyant spirit. May this year bring you endless joy and success in all your endevours. You are older than but younger than feature, so don't worry, enjoy!! So once again,a very good Happy Birthday Jhethu"<br><br>-Ryan</a></div></div>
         <br><br>
         <div style="width: 100%;display: flex;justify-content: center;"><button class="button1 ft1" onclick="email()">Made by Sarthak💓</button></div><br>
+        <div style="width: 100%;display: flex;justify-content: center;"><button class="ft1 button1" onclick="credits()">Credits</button></div><br>
   </div>
+
 </div>
 <script>
+        //const sound1 = new Audio('s1.mp3') 
+
         var screenheight;
         function ch1() {
             screenheight = window.innerHeight
@@ -144,6 +154,7 @@
             
         }
         function cardo() {
+        //sound1.play()
         document.getElementById("card").style.position = "fixed"
         document.getElementById("card").style.top = "0px"
         document.getElementById("card").style.marginTop = "-800px"
@@ -155,9 +166,13 @@
     }
     function spawncard() {
         document.getElementById("card1").style.visibility = "visible"
-        document.getElementById("card1").style.marginTop = "800px"
+        document.getElementById("card1").style.marginTop = "900px"
         document.getElementById("card1").style.position = "unset"
         document.getElementById("card1").style.marginTop = "0px"
+        window.setTimeout(f2,2000)
+    }
+    function f2() {
+                document.getElementById("card1").style.transition = "1s"
     }
     function ask1() {
         var uday = confirm("Are u really having a good day?🤫")
@@ -173,6 +188,9 @@
         if (ask2) {
             alert("Email system is broken!!Mail manually Raymondal.sarthak@outlook.com")
         }
+    }
+    function credits() {
+        alert("Credits\nIcon:https://pngtree.com/freepng/happy-birthday-cap-with-ribbon-vector-image_8988344.html")
     }
 </script>
 </body>
